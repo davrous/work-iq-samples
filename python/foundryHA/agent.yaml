@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/microsoft/AgentSchema/refs/heads/main/schemas/v1.0/ContainerAgent.yaml
+
+kind: hosted
+name: WorkIQProxyAgent
+description: >
+  A Foundry Hosted Agent that proxies user queries to Microsoft Work IQ agents
+  via the A2A (Agent-to-Agent) v0.3 protocol. It wraps the Work IQ A2A client
+  as a local tool, enabling multi-turn conversations with Work IQ through the
+  Foundry Agent Service.
+metadata:
+  authors:
+    - Microsoft
+  tags:
+    - Azure AI AgentServer
+    - Microsoft Agent Framework
+    - Work IQ
+    - A2A Protocol
+    - Local Tools
+protocols:
+  - protocol: responses
+    version: v1
+environment_variables:
+  - name: PROJECT_ENDPOINT
+    value: ${PROJECT_ENDPOINT}
+  - name: MODEL_DEPLOYMENT_NAME
+    value: ${MODEL_DEPLOYMENT_NAME}
+  - name: WORKIQ_ENDPOINT
+    value: ${WORKIQ_ENDPOINT}
+  - name: WORKIQ_AUTH_TOKEN
+    value: ${WORKIQ_AUTH_TOKEN}
+resources:
+  cpu: ""
+  memory: ""
+dockerfile_path: Dockerfile
